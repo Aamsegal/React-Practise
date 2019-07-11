@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>React Hello World</title>
+</head>
+<body>
+
+    <div id="application-root"></div>
+
+    <script
+      src="https://unpkg.com/react@16/umd/react.development.js">
+    </script>
+    <script
+
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js">
+    </script>
+
+    <script
+    src="https://unpkg.com/babel-standalone@6/babel.min.js">
+    </script>
+
+    <script type="text/babel">
+        function App(props) {
+          return (
+          <header>
+              {props.children}
+          </header>
+          );
+        }
+        
+        const Header = text => <h2>{text}</h2>;
+        const Paragraph = text => <p>{text}</p>;
+        const List = array => <ul>{array.map((item,index) => <li key={index}>{item}</li>)}</ul>;
+
+        /*class Header extends React.Component {
+          render() {
+            return <h2>{this.props.text}</h2>
+          }
+        }*/
+        //const paragraph = 
+        // Nested elements inside the App
+        ReactDOM.render(
+          <App className='my-class'>
+              {/*<Header text="about me"></Header>*/}
+              {Header('about me')}
+              {Paragraph('My name is Sally Student and I am 196 years old. I enjoy long walks on the beach with my dogs and vanilla ice-cream.')}
+              {Header('Education')}
+              {List(['School 1','School 2'])}
+              {Header('Employment')}
+              {Paragraph('I worked for the Massachusets Department of Education for about 80 years before switching to an Education professor at School A.')}
+          </App>,
+          document.querySelector('#application-root')
+          );
+      // Our code will go here
+    </script>
+
+</body>
+</html>
